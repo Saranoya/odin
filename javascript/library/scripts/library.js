@@ -25,15 +25,7 @@ function storageAvailable(type) {
     }
 }
 
-function getLibrary() {
-    let library = [];
-    if (storageAvailable('localStorage')) {
-        library = JSON.parse(localStorage.getItem('library'));
-    }
-    return library;
-}
-
-let myLibrary = getLibrary();
+let myLibrary = JSON.parse(localStorage.getItem('library') || '[]');
 
 function updateLocalStorage() {
     if (storageAvailable('localStorage')) {
