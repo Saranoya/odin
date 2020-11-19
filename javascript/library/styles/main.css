@@ -22,7 +22,7 @@ nav {
     text-align: right;
     z-index: 2;
     display: grid;
-    grid-template-columns: auto 160px 160px;
+    grid-template-columns: auto 130px 160px 160px;
 }
 
 #credits {
@@ -129,6 +129,30 @@ header p {
     grid-column: 1 / 5;
     line-height: 3em;
     text-align: center;
+}
+
+#stats {
+    color: white;
+    font-size: 0.5em;
+    font-weight: normal;
+    display: grid;
+    padding: 5px;
+    grid-template-areas: 
+        "total-books"
+        "clear-storage";
+}
+
+#clear-storage {
+    grid-area: clear-storage;
+    background: rgb(72, 82, 91);
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+    align-items: center;
+}
+
+#total-books {
+    grid-area: total-books;
 }
 
 #new-book-form {

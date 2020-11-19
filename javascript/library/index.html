@@ -33,6 +33,10 @@
 <body>
     <nav>
         <img src="images/labrary_logo.png" alt="just a library logo"/>
+        <div id ="stats">
+            <div id="clear-storage">clear local storage</div>
+            <div id="total-books">0 books in library</div>   
+        </div>
         <select id="display-options">
             <option value="all" selected>Display: All</option>
             <option value="read">Display: Read</option>
@@ -111,7 +115,6 @@
         </fieldset>
         <button type="submit" id="submit">Submit</button>
     </form>
-    
     <div id="shelf">
     </div>
     <script type="text/javascript" src="./scripts/library.js"></script>

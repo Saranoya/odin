@@ -1,5 +1,27 @@
-// LOCAL STORAGE
 
+
+// GLOBAL CONSTANTS
+const addToLibrary = () => {
+    let book = new Book(
+        document.querySelector('#title input').value,
+        document.querySelector('#author input').value,
+        document.querySelector('#cover-url input').value,
+        document.querySelector('#description textarea').value,
+        document.querySelector('#pages input').value,
+        document.querySelector('#pages-read input').value,
+        document.querySelector('#tracked').checked ? undefined : false,
+        new Date()
+    ); myLibrary.push(book); updateLocalStorage();
+}
+
+const clearStorageButton = document.getElementById('clear-storage');
+const stats = document.getElementById('stats');
+const newBookTitle = document.getElementById('new-book-title');
+const addNewBookButton = document.getElementById('add-button');
+const addNewBookForm = document.getElementById('new-book-form');
+const shelf = document.getElementById('shelf');
+
+// LOCAL STORAGE
 function storageAvailable(type) {
     let storage;
     try {
@@ -36,24 +58,11 @@ function updateLocalStorage() {
       }
 }
 
-// GLOBAL CONSTANTS
-const addToLibrary = () => {
-    let book = new Book(
-        document.querySelector('#title input').value,
-        document.querySelector('#author input').value,
-        document.querySelector('#cover-url input').value,
-        document.querySelector('#description textarea').value,
-        document.querySelector('#pages input').value,
-        document.querySelector('#pages-read input').value,
-        document.querySelector('#tracked').checked ? undefined : false,
-        new Date()
-    ); myLibrary.push(book); updateLocalStorage();
+function clearStorage() {
+    localStorage.clear();
+    myLibrary = [];
+    render();
 }
-
-const newBookTitle = document.getElementById('new-book-title');
-const addNewBookButton = document.getElementById('add-button');
-const addNewBookForm = document.getElementById('new-book-form');
-const shelf = document.getElementById('shelf');
 
 // BOOK CONSTRUCTOR + METHODS
 function Book(title, author, cover, description, pages, pagesRead, read, added) {
@@ -66,28 +75,24 @@ function Book(title, author, cover, description, pages, pagesRead, read, added) 
     this.read = read;
     this.added = added;
 }
-Book.prototype.stringifyRead = function() {
-    let percentageRead = Math.floor((this.pagesRead/this.pages)*100);
-    let output = parseInt(this.pagesRead) < parseInt(this.pages) 
-        ? `${this.pagesRead} of ${this.pages} pages read (${percentageRead}%)`
-        : 'read';
-    return output
-}
-Book.prototype.toggleRead = function() { this.read = !this.read; }
 
 // RENDERING
 function render() {
     shelf.innerHTML = '';
     if (myLibrary.length == 0) { // there are no books in the library
-        shelf.style.backgroundColor = ''; 
+        stats.style.visibility = 'hidden';
         let startMessage = document.createElement('div');
         startMessage.setAttribute('id', 'start-message');
-        startMessage.style.dispaly = 'block';
+        startMessage.style.display = 'block';
         startMessage.textContent = 
             'The library is currently empty. ' + 
             'Type the title of a book you want to add into the input field above, then press "ENTER" or tap "+". ';
         shelf.appendChild(startMessage);
-    } // there are books in the library 
+    } else { // there are books in the library
+        let message = myLibrary.length > 1 ? ' books in library' : ' book in library';
+        document.getElementById('total-books').textContent = myLibrary.length + message;
+        stats.style.visibility = 'visible';
+    }
     for (let i = 0; i < myLibrary.length; i++) {
         const bookDiv = document.createElement('div');
         bookDiv.setAttribute('class', 'book');
@@ -200,7 +205,10 @@ function generateProgressBar(id, withButton) {
     readDiv.appendChild(progressBar);
     const textSpan = document.createElement('div');
     textSpan.setAttribute('class', 'text-span');
-    textSpan.textContent = myLibrary[id].stringifyRead();
+    let percentageRead = Math.floor((myLibrary[id].pagesRead/myLibrary[id].pages)*100);
+    textSpan.textContent = parseInt(myLibrary[id].pagesRead) < parseInt(myLibrary[id].pages) 
+        ? `${myLibrary[id].pagesRead} of ${myLibrary[id].pages} pages read (${percentageRead}%)`
+        : 'read';
     readDiv.appendChild(textSpan);
     const pagesButton = document.createElement('input');
     pagesButton.setAttribute('type', 'button');
@@ -392,7 +400,7 @@ function handlePagesRead(e) {
 }
 
 function handleReadToggle(e) {
-    myLibrary[getEventTarget(e).dataset.id].toggleRead();
+    myLibrary[getEventTarget(e).dataset.id].read = !myLibrary[getEventTarget(e).dataset.id].read;
     if (myLibrary[getEventTarget(e).dataset.id].read) {
         getEventTarget(e).value = '\u00d7'; // mult. sign
         getEventTarget(e).parentNode.firstChild.style.backgroundColor = 'rgba(4, 74, 77, 0.9)'; // green
@@ -452,6 +460,8 @@ function handleBookButtons(e) {
 }
   
 // EVENT LISTENERS
+clearStorageButton.addEventListener('mousedown', clearStorage);
+clearStorageButton.addEventListener('mouseup', render);
 shelf.addEventListener('click', e => handleBookButtons(e));
 
 addNewBookButton.addEventListener('click', () => {
