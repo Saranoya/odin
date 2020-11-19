@@ -1,0 +1,91 @@
+body {
+    background-color: rgb(74, 82, 90);
+    color: rgb(221, 221, 221);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+main {
+    background-image: url('../images/background.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    padding: 1%;
+    min-width: 300px;
+    max-width: 450px;
+}
+
+main, #content, img, footer, .badge {
+    border-radius: 20px;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#content {
+    background-color: rgba(74, 82, 90, 0.9);
+    padding: 1% 0;
+}
+
+a {
+    color: rgb(221, 221, 221);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a#reset { display: block; width: 100%; margin: .5em; }
+
+
+#content img {
+    margin: 1%;
+    width: 20%;
+    cursor: pointer;
+}
+
+#content img:hover {
+    opacity: 0.5;
+    filter: alpha(50);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th {
+    line-height: 40px;
+}
+
+th, td {
+    margin: 0;
+    padding: 1%;
+    width: 25%;
+}
+
+td img {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 2px !important;
+    margin: 0 !important;
+}
+
+.badge {
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 0;
+}
+
+footer {
+    line-height: 40px;
+    background-color:rgba(74, 82, 90, 0.9);
+    color: rgb(221, 221, 221);
+    margin: 1% auto;
+    font-size: 0.8em;
+}
+
+
+
+

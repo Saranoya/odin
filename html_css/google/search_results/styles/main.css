@@ -1,0 +1,359 @@
+body {
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover span.underline {
+    text-decoration: underline;
+}
+
+a:hover cite {
+    text-decoration: none;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 112px 750px auto;
+    grid-template-areas: 
+        "logo search top-nav";
+    padding: 20px 20px 0 20px;
+    grid-gap: 20px;
+    background: white;
+}
+
+.dropdown {
+    height: 40px;
+    align-content: center;
+    box-shadow: 0 4px 2px -2px rgba(212,212,212,0.75);
+}
+
+#logo {
+    grid-area: logo;
+    width: 92px;
+    display: block;
+    margin: auto auto;
+}
+
+#search input {
+    grid-area: search;
+    box-sizing: border-box;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 34px;
+    -moz-border-radius: 34px;
+    -webkit-border-radius: 34px;
+    font-family: arial, sans-serif;
+    font-size: 1.2em;
+    height: 34px;
+    width: 96%;
+    padding: 20px;
+}
+
+#search  input:focus, #search input:hover {
+    border: none;
+    outline: none;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(212,212,212,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(212,212,212,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(212,212,212,0.75);
+}
+
+#search img {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+    right: 45px;
+    top: 4px;
+    cursor: pointer;
+}
+
+#results-nav {
+    width: 750px;
+    margin-left: 155px;
+    margin-top: 30px;
+}
+
+#results-nav a {
+    color: rgb(108, 108, 108);
+    display: inline-block;
+    padding: 5px 15px 10px 15px;
+    font-size: 13px;
+}
+
+#results-nav a.active {
+    color: rgb(68, 133, 245);
+    border-bottom: 3px solid rgb(68, 133, 245);
+}
+
+#results-nav a:hover {
+    color: rgb(68, 133, 245);
+}
+
+#top-nav {
+    grid-area: top-nav;
+    text-align: right;
+    min-width: 100px;
+    margin-right: 2%;
+}
+
+#top-nav a {
+    color: rgb(33, 33, 33);
+}
+
+#top-nav input {
+    background-color: rgb(68, 133, 245);
+    border: none;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    vertical-align: top;
+    line-height: 30px;
+}
+
+#top-nav .icon {
+    filter: opacity(60);
+    opacity: 0.6;
+    height: 24px;
+    width: 24px;
+    margin-top: 3px;
+}
+
+#top-nav .icon:hover {
+    cursor: pointer;
+    filter: opacity(100);
+    opacity: 1;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 112px 730px auto;
+    grid-template-areas: ". results sidebar";
+    grid-gap: 20px;
+    padding: 20px;
+    border-top: 1px solid rgb(227, 227, 227);
+}
+
+main a {
+    color: rgb(14, 24, 164);
+}
+
+main a:hover {
+    text-decoration: underline;
+} 
+
+#results {
+    grid-area: results;
+    padding: 0;
+}
+
+#searchtime {
+    margin-top: 0;
+    color: rgb(108, 108, 108);
+    font-size: 0.9em;
+}
+
+#results .mainlink {
+    font-size: 1.3em;
+    display: block;
+    margin-top: 20px;
+}
+
+#results a.mainlink {
+    color: rgb(14, 24, 164);
+    text-decoration: none;
+}
+
+#results .mainlink a:visited {
+    color: purple;
+}
+
+#results cite {
+    display: block;
+    color: rgb(42, 100, 42);
+    font-style: normal;
+    font-size: 14px;
+}
+
+#results p.preview {
+    margin: 0;
+    line-height: 1.5em;
+    color: rgb(108, 108, 108);
+}
+
+#EU {
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+#related p {
+    font-size: 1.3em;
+}
+
+#related a {
+    display: block;
+    margin-bottom: 15px;
+}
+
+#pagination img {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+#pagination a {
+    color: rgb(68, 133, 245);
+    display: inline-block;
+    margin-right: 9px;
+}
+
+#pagination a.active {
+    color: black;
+    font-weight: bold;
+}
+
+#pagination a.active:hover {
+    text-decoration:none;
+}
+
+#pages {
+    padding-left: 90px;
+    display: inline-block;
+    margin-left: 170px;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    margin-top: 50px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    height: fit-content;
+    width: 80%;
+}
+
+#sidebar .top {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    grid-template-areas: "name photo";
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+#sidebar .top img {
+    grid-area: photo;
+    width: 100px;
+    border-top-right-radius: 10px;
+}
+
+#sidebar .top h1 {
+    grid-area: name;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+#sidebar .top p {
+    grid-area: name;
+    margin-left: 10px;
+    margin-top: 60px;
+    color: rgb(119, 119, 119);
+}
+
+#sidebar .bottom p {
+    margin: 10px;
+    line-height: 1.5em;
+    font-size: 0.9em;
+}
+
+#sidebar .related {
+    padding: 10px;
+}
+
+#sidebar .related h2 {
+    font-weight: normal;
+    color: rgb(34, 34, 34);
+    margin-bottom: 0;
+}
+
+#sidebar .related td {
+    vertical-align: top;
+    padding-right: 5px;
+}
+
+#sidebar .related a {
+    display: block;
+}
+
+#next {
+    display: inline;
+    padding-left: 50px;
+}
+
+footer {
+    display: block;
+    background-color: rgb(235, 235, 235);
+    height: 81px;
+    font-size: 0.9em;
+}
+
+#footer-bottom, #footer-top {
+    border-top: 1px solid rgb(227, 227, 227);
+    color: rgb(100, 100, 100);
+    line-height: 40px;
+    display: block;
+    padding-left: 150px;
+}
+
+#footer-bottom a, #footer-top a {
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+}
+
+#footer-bottom a {
+    padding-right: 20px;
+}
+
+#footer-bottom a:hover, #footer-top a:hover {
+    color: rgb(33, 33, 33);
+}
+
+#footer-top strong {
+    color: black;
+}
+
+.item {
+    line-height: 1.5em;
+}
+
+.large-bullet {
+    font-size: 2.5em;
+    vertical-align: middle;
+}
+
+.border-right {
+    border-right: 1px solid rgb(228, 228, 228);
+    padding-right: 5px;
+    font-size: 1.2em;
+}
+
+.date {
+    color: rgb(119, 119, 119);
+}
+
+#sidebar table {
+    margin-top: -20px;
+}
+
+#sidebar table th {
+    font-weight: normal;
+    text-align: right;
+}
+
+#sidebar table th a {
+    color: rgb(100, 100, 100);
+}

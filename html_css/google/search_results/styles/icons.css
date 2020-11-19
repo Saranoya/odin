@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "google-knockoff";
+  src:url("../fonts/google-knockoff.eot");
+  src:url("../fonts/google-knockoff.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/google-knockoff.woff") format("woff"),
+    url("../fonts/google-knockoff.ttf") format("truetype"),
+    url("../fonts/google-knockoff.svg#google-knockoff") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "google-knockoff" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "google-knockoff" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-news:before, .icon-video:before, .icon-images:before, .icon-maps:before, .icon-dots:before {
+  vertical-align: middle;
+}
+
+.icon-search:before {
+  content: "\61";
+}
+.icon-images:before {
+  content: "\62";
+}
+.icon-news:before {
+  content: "\63";
+}
+.icon-maps:before {
+  content: "\64";
+}
+.icon-video:before {
+  content: "\65";
+}
+.icon-dots:before {
+  content: "\66";
+}

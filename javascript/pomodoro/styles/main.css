@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'Helvetica Thin';
+    src: url('../fonts/helveticaneue-thincond-webfont.woff2') format('woff2'),
+         url('../fonts/helveticaneue-thincond-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Helvetica Thin';
+    background: white;
+    color: rgb(25, 25, 25);
+    margin: 0;
+    padding: 0;
+}
+
+a { color: rgb(25, 25, 25); text-decoration: underline; }
+a:hover { text-decoration: none; }
+h1 {color: white; text-transform: uppercase; }
+
+
+main {
+    color: white;
+    text-transform: uppercase;
+    background-image: url('../images/main_bg.jpg');
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+#settings-switch {
+    background: black;
+    position: absolute; left: -5px; top: -5px;
+    border-bottom-right-radius: 20px;
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    width: 50px;
+}
+
+#settings {
+    position: absolute; left: 0; top: 0;
+    background: rgb(52, 52, 52);
+    color: white;
+    line-height: 1.5em;
+    padding: 10px;
+    padding-left: 65px;
+    border-bottom-right-radius: 20px;
+    width: 15%;
+    display: block;
+    opacity: 1;
+}
+
+#watch-container {
+    background-image: url('../images/smartwatch_full.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-align: center;
+    margin: 0 auto;
+    height: 550px;
+    padding-top: 75px;
+}
+
+
+#watch-container h1 {
+    margin-bottom: 0;
+    font-size: 1em;
+    margin-top: 50px;
+}
+
+#up-next {
+    color: rgb(200,200,200);
+    margin-bottom: 0;
+}
+
+#canvas {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+#bullets {
+    padding: 0;
+    margin: 0 auto;
+}
+
+#buttons {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#start { width: 300px; }
+
+#reset-settings {
+    font-size: 0.95em;
+    color: black;
+    background: white;
+    width: 90%;
+    margin: 20px auto;
+}
+
+input[type=button] {
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    font-family: 'Helvetica Thin';
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.3em;
+    width: 100px;
+}
+
+input[type=button]:focus { 
+    outline: 0 !important; 
+    background-color: rgb(140, 180, 250);
+}
+
+#pause, #reset { display: none; }
+#start { margin: 0 auto; display: block; }
+
+input[type="number"] {
+    height: 1.5em;
+    padding: 3px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 4em;
+}
+
+footer {
+    grid-area: footer;
+    border-top: 1px dashed rgb(200,200,200);
+    text-align: center;
+    font-size: 0.6em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1% 0;
+    width: 100%;
+}
+
+footer h1 {
+    color: white;
+    background: rgb(52, 52, 52);
+    font-family: "Helvetica Thin";
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    width: 60%;
+}
+
+footer ol {
+    list-style: decimal;
+    margin: 0 auto;
+    width: 60%;
+    text-align: left;
+    font-family: "Helvetica Thin";
+    line-height: 1.5em;
+    font-size: 2em;
+}
+
+footer p {
+    width: 75%;
+    margin: 20px auto;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.highlighted { color: rgb(140, 180, 250); }
+.bold { font-weight: bold; }
+.centered { text-align: center; }
+.clicked { opacity: 0.5; }
+
+@media screen and (max-width: 950px) {
+    #settings { 
+        display: none;
+        width: 30%; 
+    }
+}
+
+@media screen and (max-width: 510px) {
+    main {
+        background-image: none;
+        background-color: rgb(52, 52, 52);
+    }
+
+    #watch-container {
+        background-image: none;
+    }
+
+    #settings {
+        background: white;
+        color: black;
+        width: 75%;
+        opacity: 0.9;
+    }
+
+    input[type="number"], #reset-settings {
+        border: 1px solid rgb(52, 52, 52);
+    }
+}

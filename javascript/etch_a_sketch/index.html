@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <title>Botch a Sketch by Saranoya</title>
+</head>
+<body onload="showModeSwitch(); generateGrid();">
+<main>
+    <h1>Botch A Sketch</h1>
+    <p class="cite">
+        made by <a href="https://github.com/Saranoya/">Saranoya</a> for 
+        <a href="https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project">The Odin Project</a>
+        - <a href="https://github.com/Saranoya/odin/tree/master/javascript/etch_a_sketch/">SOURCE</a>
+    </p>
+    <p class="warning"></p>
+    <div id="top-controls">
+        <label for="dimension">&rdca; grid height/width</label>
+        <input id="dimension" type="number" min="2" max="250" value="16"/>
+        <input id="hidegrid" type="button" value="Hide grid"/>
+        <div id="drawmode">
+            Hover to draw
+            <label class="switch"><input type="checkbox" id="clicktodraw">
+                <span class="slider"></span>
+            </label>
+            Click to draw
+        </div>      
+    </div>
+    <div id="border">
+        <div id="canvas"></div>
+        <div id="bottom-controls">
+                <div id="clear" class="knob">Clear</div>
+                <div id="draw" class="button active greyable"><input type="color" id="color"/></div>
+                <input id="shader" class="greyable" type="button" value="Noise"/>
+                <input id="rainbow" class="greyable" type="button" value="Random"/>
+                <div id="eraser" class="knob right greyable">Erase</div>
+            </div>
+    </div>
+</main>
+<footer>
+    Thanks to <a href="https://www.joebobgraphics.com">JOEBOB Graphics</a> 
+    for the <a href="https://www.joebobgraphics.com/fonts/etch-a-sketch/">Etch-a-Sketch font</a>, 
+    and to <a href="https://github.com/ann-codes">Ann Nguyen</a> for 
+    <a href="https://ann-codes.github.io/top-etch-a-sketch/">CSS design inspiration</a>. 
+
+    <div id="rules">
+        <h2>How to use this tool</h2>
+        <p><strong>
+            By default, you draw by hovering your mouse pointer over the canvas and moving it around.
+            If you're on a mouse-equipped device, you can also flip the switch to 'click to draw'. 
+            In 'click to draw' mode, a pixel will only change color if you click it. 
+            The app then becomes a rudimentary pixelart editor. 
+        </strong></p>
+        <p>
+            Note: although this web page works on mobile, there is no 'hovering' on touch devices.
+            If you're on a phone or tablet, tap individual pixels to change their color.
+            You are in 'click to draw' mode by default.
+        </p> 
+        <dl>
+            <dt>Grid height/width:</dt>
+            <dd>
+                Determines the size of the pixels. The larger the height/width, the smaller the pixels.
+                Will take any value between 2 and 250 (after which the squares become so small, 
+                you will barely even see where you're drawing). 
+            </dd>
+            <dt>Clear:</dt>
+            <dd>Clears the drawing area completely.</dd>
+            <dt>Draw / Color:</dt>
+            <dd>
+                Lets you pick the color with which to draw. 
+                In this (default) mode, each pixel is filled with the chosen color as you pass over it,
+                or on mobile, if you tap it. 
+            </dd>
+            <dt>Noise:</dt>
+            <dd>
+                Makes a pixel 10% darker each time you pass over it,
+                starting at 10% opacity, until it reaches 100% opacity.
+                It preserves the color that was already there, if any. 
+                When passing over a pixel that hasn't been touched before,
+                it will use the color currently set in 'Draw' mode.
+                Visually, this effect looks rather like a 'dirty' eraser,
+                especially at smaller pixel sizes.   
+            </dd>
+            <dt>Random:</dt>
+            <dd>Draws each individual pixel in a random color as you hover over it or tap it.</dd>
+            <dt>Eraser:</dt>
+            <dd>
+                Lets you erase individual pixels by clicking on them.
+                On a mouse-and-keyboard device, you can also 
+                hold your mouse button and drag to clear a larger area. 
+            </dd>
+        </dl>
+    </div>
+</footer>
+<script type="text/javascript" src="./scripts/sketch.js"></script>
+</body>
+</html>

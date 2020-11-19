@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>Pomodoro by Saranoya</title>
+</head>
+
+<body>
+    <audio id="back-to-work-alarm" preload="auto">
+        <source src="./sounds/back_to_work.wav" type="audio/wav">
+    </audio>
+    <audio id="break-alarm" preload="auto">
+        <source src="./sounds/long_break.wav" type="audio/wav">
+    </audio>
+    <div id="settings">
+        <p>
+            I would like to complete
+            <select id="total-pomodoros" class="goal">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option selected>8</option>>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+            Pomodoros (focused work sessions) today.
+        </p>
+        <p>
+            Each Pomodoro will last 
+            <select id="focus" class="duration">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option selected>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+            </select>
+            minutes.
+        </p>
+        <p>
+            After each completed Pomodoro, I will take a short 
+            <select id="short-break" class="duration">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option selected>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+            </select>
+            minute break.
+        </p>
+        <p>
+            Each time I have completed 
+            <select id="pomodoro-goal" class="goal">
+                <option>2</option>
+                <option>3</option>
+                <option selected>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+            Pomodoros, I will take a longer break of 
+            <select id="long-break" class="duration">
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option selected>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+            </select>
+            minutes.
+        </p>
+        <input type="button" id="reset-settings" value="reset to defaults"/> 
+    </div>
+    <input type="button" id="settings-switch" value = "&#9881;"/>
+    <main>
+        <div id="watch-container" class="unselectable">
+            <h1 id="status">no pomodoros completed today</h1>
+            <p id="up-next">up next: get to work!</p>
+            <canvas id="canvas" height="250" width="250"></canvas>
+            <p id="bullets"></p>
+            <div id="buttons">
+                <input type="button" id="start" value="start pomodoro # 1 of 8"/>
+                <input type="button" id="pause" value="pause"/>
+                <input type="button" id="reset" value="reset"/>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="centered">
+            Made by <a href="https://github.com/Saranoya/">Saranoya</a>
+            for <a href="https://www.theodinproject.com/courses/web-development-101/lessons/pairing-project">The Odin
+                Project</a>
+            - <a href="https://github.com/Saranoya/odin/tree/master/javascript/pomodoro/">VIEW SOURCE</a> -
+            v1. 
+        </p>
+        <p> 
+            Thanks go out to <a href="https://github.com/LenaChestnut">LenaChestnut</a>, 
+            whose <a href="https://lenachestnut.github.io/pomodoro_timer/">own version</a> of this project gave me the idea to use empty/filled 
+            dots as an indicator of the number of Pomodoros completed; 
+            to <a href="https://github.com/Diane998">Diane998</a>, 
+            who inspired me to use a background image on the desktop version of this project;
+            to <a href="https://github.com/justinkar">Justinkar</a>, whose <a href="https://justinkar.github.io/pomodoro/">minimalist 
+            design</a> for this project gave me the idea to separate the settings from the actual timer display; 
+            and to <a href="https://ann-codes.github.com">Ann Nguyen</a>, 
+            whose <a href="https://ann-codes.github.io/javascript-pomodoro-clock/">Pomodoro Timer</a> changes background 
+            color as it runs in order to visually represent the passage of time, which inspired my gradually completing circle implementation; 
+            and finally to Ann again, for alerting me to the existence of
+            <a href="http://soundbible.com">SoundBible</a>, where I found the sound effects I use here to indicate 
+            the end of each session and break. 
+        </p>
+        <h1>The Pomodoro Technique</h1>
+        <ol>
+            <li>Pick a task you want to accomplish today.</li>
+            <li>Work on that task in a focused manner for a fixed period of time.</li>
+            <li>Take a short break.</li>
+            <li>Repeat steps 2 and 3 until you have completed two or more focused work sessions or 'pomodoros'.</li>
+            <li>Take a longer break.</li>
+            <li>Repeat steps 1 through 5 until your task is complete, or your workday is over.</li>
+        </ol>
+        <p class="centered">
+            To change any or all of the default values, click the &#9881; icon in the upper left corner of the screen.
+        </p>
+
+
+    </footer>
+    <script type="text/javascript" src="./scripts/pomodoro.js"></script>
+</body>
+
+</html>
