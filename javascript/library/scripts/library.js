@@ -25,7 +25,7 @@ function storageAvailable(type) {
     }
 }
 
-let myLibrary = JSON.parse(localStorage.getItem('library') || []);
+let myLibrary = JSON.parse(localStorage.getItem('library') || '[]');
 
 function updateLocalStorage() {
     if (storageAvailable('localStorage')) {
