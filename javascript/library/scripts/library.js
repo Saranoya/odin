@@ -1,5 +1,48 @@
-// GLOBAL VARIABLES
-let myLibrary = [];
+// LOCAL STORAGE
+
+function storageAvailable(type) {
+    let storage;
+    try {
+        storage = window[type];
+        let test = '__storage_test__';
+        storage.setItem(test, test);
+        storage.removeItem(test);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+
+function getLibrary() {
+    if (storageAvailable('localStorage')) {
+        return localStorage.getItem('library') === null ? [] : localStorage.getItem('library');
+    }
+}
+
+let myLibrary = getLibrary();
+
+function updateLocalStorage() {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('library', myLibrary);
+        console.log("Local Storage invoked.");
+        console.log(localStorage);
+      }
+      else {
+        // Implement graceful error message
+      }
+}
 
 // GLOBAL CONSTANTS
 const addToLibrary = () => {
@@ -39,43 +82,6 @@ Book.prototype.stringifyRead = function() {
     return output
 }
 Book.prototype.toggleRead = function() { this.read = !this.read; }
-
-// LOCAL STORAGE
-function storageAvailable(type) {
-    let storage;
-    try {
-        storage = window[type];
-        let test = '__storage_test__';
-        storage.setItem(test, test);
-        storage.removeItem(test);
-        return true;
-    }
-    catch(e) {
-        return e instanceof DOMException && (
-            // everything except Firefox
-            e.code === 22 ||
-            // Firefox
-            e.code === 1014 ||
-            // test name field too, because code might not be present
-            // everything except Firefox
-            e.name === 'QuotaExceededError' ||
-            // Firefox
-            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-            // acknowledge QuotaExceededError only if there's something already stored
-            (storage && storage.length !== 0);
-    }
-}
-
-function updateLocalStorage() {
-    if (storageAvailable('localStorage')) {
-        localStorage.setItem('library').value = myLibrary;
-        console.log("Local Storage invoked.");
-        console.log(localStorage);
-      }
-      else {
-        // Implement graceful error message
-      }
-}
 
 // RENDERING
 function render() {
