@@ -2,7 +2,7 @@
 
 This is a project I created while going through [The Odin Project's JavaScript Course](https://www.theodinproject.com/courses/javascript). I wholeheartedly recommend The Odin Project as a whole to anyone who wants to get serious about learning to program for the web. 
 
-The finished product as it currently stands can be viewed [here](https://saranoya.github.io/odin/javascript/library/public/) (Github Pages), and/or [here](https://just-a-library.web.app) (Firebase hosting). 
+The finished product as it currently stands can be viewed [here](https://saranoya.github.io/odin/javascript/library/). 
 
 # New things I learned
 
