@@ -144,16 +144,14 @@ window.addEventListener('keypress', function(e) {
 
 The beauty of this solution is that when the form is hidden, Escape still works as the user expects (e.g., as a way to exit full screen mode). 
 
-## Other
+### Working with localStorage
 
-### Firebase deployment
-
-**TODO**
+This app does not currently have a true database back-end. Instead, it uses `JSON.stringify` to write the current contents of the myLibrary array of objects to localStorage as a string, and `JSON.parse` to convert that string back into an array of generic Objects for use in the `render()` function. This is not ideal, because prototype methods written for a specific object prototype (in this case, `Book`) cannot be called on generic Objects. However, it works. 
 
 # Ideas for the future
 
 - I'd like to come back to this app at some point and implement a **login / user account system**, so multiple people can use it simultaneously to track their reading progress. 
 - With such a system set up (or even without it), it should be possible to **query my own database for cover images / descriptions / page counts on submission of a new book**, before relying on the Google Books API.
 - One good reason to try to circumvent Google Books: the **cover thumbnails it provides are smaller than the size I'm using here for book covers**. This results in distorted / blurry cover images. It is possible to query Google Books for larger images, but this requires an API key and will limit the maximum number of API requests to a 1000 per 24 hours. That's fine while just testing, or if the app has only a handful of users. It's not a solution that scales, though. 
-- **Stats** on the number of total books in the library / number of books read and unread, and perhaps even the total number of pages versus pages read, might be neat. 
+
 
