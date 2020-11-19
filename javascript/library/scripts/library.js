@@ -25,11 +25,12 @@ function storageAvailable(type) {
     }
 }
 
-let myLibrary = JSON.parse(localStorage.getItem('library') || '[]');
+let myLibrary = JSON.parse(localStorage.getItem('library') || []);
 
 function updateLocalStorage() {
     if (storageAvailable('localStorage')) {
         localStorage.setItem('library', JSON.stringify(myLibrary));
+        console.log(localStorage);
       }
       else {
         // Implement graceful error handling
