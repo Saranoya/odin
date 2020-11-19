@@ -12,13 +12,7 @@ const addToLibrary = () => {
         document.querySelector('#pages-read input').value,
         document.querySelector('#tracked').checked ? undefined : false,
         new Date()
-    ); myLibrary.push(book);
-    if (storageAvailable('localStorage')) {
-        localStorage.setItem('library').value = myLibrary;
-      }
-      else {
-        // Implement graceful error message
-      }
+    ); myLibrary.push(book); updateLocalStorage();
 }
 
 const newBookTitle = document.getElementById('new-book-title');
@@ -70,6 +64,15 @@ function storageAvailable(type) {
             // acknowledge QuotaExceededError only if there's something already stored
             (storage && storage.length !== 0);
     }
+}
+
+function updateLocalStorage() {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('library').value = myLibrary;
+      }
+      else {
+        // Implement graceful error message
+      }
 }
 
 // RENDERING
@@ -358,7 +361,7 @@ function handleNewURL(e) {
 
 function saveURL(e) {
     myLibrary[getEventTarget(e).dataset.id].cover = getEventTarget(e).firstChild.value;
-    render();
+    updateLocalStorage(); render();
 }
 
 function handlePagesRead(e) {
@@ -421,7 +424,7 @@ function handleBack(e) {
 
 function handleDelete(e) {
     myLibrary.splice(getEventTarget(e).dataset.id, 1);
-    render();
+    updateLocalStorage(); render();
 }
 
 function handleEdit(e) {
