@@ -146,7 +146,7 @@ The beauty of this solution is that when the form is hidden, Escape still works 
 
 ### Working with localStorage
 
-This app does not currently have a true database back-end. Instead, it uses `JSON.stringify` to write the current contents of the myLibrary array of objects to localStorage as a string, and `JSON.parse` to convert that string back into an array of generic Objects for use in the `render()` function. This is not ideal, because prototype methods written for a specific object prototype (in this case, `Book`) cannot be called on generic Objects. However, it works. 
+This app does not currently have a true database backend. Instead, it uses `JSON.stringify` to write the current contents of the `myLibrary` array of `Book` objects to `localStorage` whenever a new book is added, and `JSON.parse` to convert the stored string back into an array of generic Objects for use in the `render()` function after a page reload. This is not ideal, because prototype methods written for a specific type of (custom) object (in this case, `Book`) cannot be called on a generic `Object`. I got it to work, in this instance, by doing away with prototype methods altogether. There were only two, and neither of them was used more than once in the code. I am, however, aware that this is almost certainly not the way to go in more complex / well-structured applications.
 
 # Ideas for the future
 
