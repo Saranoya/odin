@@ -13,6 +13,12 @@ const addToLibrary = () => {
         document.querySelector('#tracked').checked ? undefined : false,
         new Date()
     ); myLibrary.push(book);
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('library').value = myLibrary;
+      }
+      else {
+        // Implement graceful error message
+      }
 }
 
 const newBookTitle = document.getElementById('new-book-title');
@@ -39,6 +45,32 @@ Book.prototype.stringifyRead = function() {
     return output
 }
 Book.prototype.toggleRead = function() { this.read = !this.read; }
+
+// LOCAL STORAGE
+function storageAvailable(type) {
+    let storage;
+    try {
+        storage = window[type];
+        let test = '__storage_test__';
+        storage.setItem(test, test);
+        storage.removeItem(test);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
 
 // RENDERING
 function render() {
