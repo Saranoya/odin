@@ -35,12 +35,10 @@ let myLibrary = getLibrary();
 
 function updateLocalStorage() {
     if (storageAvailable('localStorage')) {
-        localStorage.setItem('library', myLibrary);
-        console.log("Local Storage invoked.");
-        console.log(localStorage);
+        localStorage.setItem('library', JSON.stringify(myLibrary));
       }
       else {
-        // Implement graceful error message
+        // Implement graceful error handling
       }
 }
 
