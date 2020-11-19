@@ -69,6 +69,8 @@ function storageAvailable(type) {
 function updateLocalStorage() {
     if (storageAvailable('localStorage')) {
         localStorage.setItem('library').value = myLibrary;
+        console.log("Local Storage invoked.");
+        console.log(localStorage);
       }
       else {
         // Implement graceful error message
