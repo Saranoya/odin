@@ -26,9 +26,11 @@ function storageAvailable(type) {
 }
 
 function getLibrary() {
+    let library = [];
     if (storageAvailable('localStorage')) {
-        return localStorage.getItem('library') === null ? [] : localStorage.getItem('library');
+        library = JSON.parse(localStorage.getItem('library'));
     }
+    return library;
 }
 
 let myLibrary = getLibrary();
