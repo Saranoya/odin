@@ -53,3 +53,9 @@ By default, the calculator is supposed to emulate the look of a 'real' calculato
 This web app implements a [Pomodoro Timer](https://en.wikipedia.org/wiki/Pomodoro_Technique), with customizable work and break lenghts, as well as a customizable number of Pomodoros to complete before a longer break.  
 
 [Source](https://github.com/Saranoya/odin/tree/master/javascript/pomodoro) - [View in browser](https://saranoya.github.io/odin/javascript/pomodoro/)
+
+### Library
+
+This is a web app that keeps an electronic record of the user's book collection. Books are added by title + author. Other info on the book (cover, description, page count) will automatically be retrieved from the Google Books database, if available, or it can be added by the user upon creation of the database record. The app permits sorting by title, by author, or read status. All info on a book can be updated, and existing books can of course be deleted. Info stored in the app persists across page reloads using localStorage. 
+
+[Source](https://github.com/Saranoya/odin/tree/master/javascript/library) - [View in browser](https://saranoya.github.io/odin/javascript/library/)
