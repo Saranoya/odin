@@ -27,7 +27,7 @@ function storageAvailable(type) {
 
 function getLibrary() {
     if (storageAvailable('localStorage')) {
-        return localStorage.getItem('library') === null ? [] : JSON.parse(localStorage.getItem('library'));
+        return localStorage.getItem('library') === null ? [] : localStorage.getItem('library');
     }
 }
 
